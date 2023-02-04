@@ -55,19 +55,25 @@ const MenuItems = ({ items, depthLevel }) => {
             aria-expanded={dropdown ? 'true' : 'false'}
             onClick={() => setDropdown((prev) => !prev)}
           >
-            {window.innerWidth < 960 && depthLevel === 0 ? (
+            {/* {window.innerWidth < 960 && depthLevel === 0 ? (
               items.title
             ) : (
               <Link to={items.url}>{items.title}</Link>
-            )}
+            )} */}
+            <Link to={items.url}>{items.title}</Link>
 
-            {depthLevel > 0 &&
+            {/* {depthLevel > 0 &&
             window.innerWidth < 960 ? null : depthLevel > 0 &&
               window.innerWidth > 960 ? (
               <span>&raquo;</span>
             ) : (
               <span className="arrow" />
-            )}
+            )} */}
+            {depthLevel > 0 ? (
+          <span>&raquo;</span>
+        ) : (
+          <span className="arrow" />
+        )}
           </button>
           <Dropdown
             depthLevel={depthLevel}
